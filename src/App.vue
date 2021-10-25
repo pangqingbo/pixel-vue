@@ -1,27 +1,38 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-  <Button></Button>
+  禁用disabled：
+  <Button disabled>Button</Button>
+  主按钮primary:
+  <Button type="primary">Button</Button>
+  消息info：
+  <Button type="info">Button</Button>
+  危险danger：
+  <Button type="danger">Button</Button>
+  警告warning：
+  <Button type="warning">Button</Button>
+  默认按钮：
+  <Button>Button</Button>
+  圆形按钮circle：
+  <Button type="info" circle>Button</Button>
+  小按钮small：
+  <Button size="small">Button</Button>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+*{
+  margin: 0;
+  padding: 0;
+}
+#app{
+  width: 110px;
+  margin: 10px auto;
 }
 </style>
