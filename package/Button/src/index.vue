@@ -4,10 +4,12 @@
     :style="styleArr"
     :class="{
         disabled,
-        circle
+        circle,
+        wave,
     }"
     >
-        <slot></slot>
+        <span><slot></slot></span>
+        <div></div>
     </a>
 </template>
 
@@ -25,6 +27,10 @@ export default {
             default: false,
         },
         disabled:{
+            type: Boolean,
+            default: false,
+        },
+        wave:{
             type: Boolean,
             default: false,
         },
@@ -76,6 +82,7 @@ export default {
 
 <style scoped>
 a{
+    position: relative;
     display: block;
     padding: 8px 10px;
     text-align: center;
@@ -86,11 +93,50 @@ a{
     transition: .5s all;
     letter-spacing: 1px;
     width: 70px;
+    overflow: hidden;
 }
 a:hover{
     opacity: .7;
     transform: translateY(-2px);
     box-shadow: 0 0 10px rgba(117, 117, 117, 0.9);
+}
+a.wave div{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #00AEFF;
+    top: calc(100% + 22px);
+    left: 0;
+    transition: 1s;
+}
+a.wave span{
+    transition: 1s;
+    position: relative;
+    z-index: 1;
+}
+a.wave:hover span{
+    color: #fff;
+}
+a.wave:hover div{
+    top: 0;
+}
+a.wave div::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 22px;
+    top: -21px;
+    left: 0;
+    background: url(../../public/img/wave.png);
+    animation: run 0.5s linear infinite;
+}
+@keyframes run {
+    from{
+        background-position-x: 0;
+    }
+    to{
+        background-position-x: 118px;
+    }
 }
 a.circle{
     border-radius: 40px;
