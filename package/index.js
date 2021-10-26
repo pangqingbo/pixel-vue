@@ -1,7 +1,8 @@
 import Button from "./Button";
+import PInput from "./Input";
 
 const components = [
-    Button
+    Button, PInput
 ]
 
 const install = function(app){
