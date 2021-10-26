@@ -110,9 +110,9 @@ a.wave div{
     transition: 1s;
 }
 a.wave span{
-    transition: 1s;
     position: relative;
     z-index: 1;
+    transition: 1s;
 }
 a.wave:hover span{
     color: #fff;

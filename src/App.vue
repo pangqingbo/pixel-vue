@@ -1,6 +1,8 @@
 <template>
-  <router-link v-for="(item,index) in routes" :to="item.path" :key="index">{{item.name}}</router-link>
-  <router-view/>
+  <div id="nav">
+    <router-link v-for="(item,index) in routes" :to="item.path" :key="index">{{item.name}}</router-link>
+    <router-view/>
+  </div>
 </template>
 
 <script>
@@ -13,12 +15,21 @@ export default {
       routes
     }
   },
-  mounted(){
-    console.log(this.routes)
-  }
 }
 </script>
 
 <style>
-
+*{
+  margin: 0;
+  padding: 0;
+}
+#nav{
+  width: 500px;
+  margin: 10px 10px;
+  background-color: rgba(128, 128, 128, 0.267);
+}
+#nav a.router-link-active{
+  text-decoration: none;
+  font-weight: bold;
+}
 </style>

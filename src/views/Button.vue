@@ -1,22 +1,51 @@
 <template>
-    <div>  
-        禁用disabled：
-        <Button disabled>Button</Button>
-        主按钮primary:
-        <Button type="primary">Button</Button>
-        消息info：
-        <Button type="info">Button</Button>
-        危险danger：
-        <Button type="danger">Button</Button>
-        警告warning：
-        <Button type="warning">Button</Button>
-        默认按钮：
-        <Button>Button</Button>
-        圆形按钮circle：
-        <Button type="info" circle>Button</Button>
-        小按钮small：
-        <Button size="small">Button</Button>
-        水波纹按钮wave:
-        <Button wave>Button</Button>
+    <div class="btnContainer">
+        <div>
+            <p>禁用disabled：</p>
+            <Button disabled>Button</Button>
+        </div>
+        <div>
+            <p>主按钮primary：</p>
+            <Button type="primary">Button</Button>
+        </div>
+        <div>
+            <p>消息按钮info：</p>
+            <Button type="info">Button</Button>
+        </div>
+        <div>
+            <p>危险danger：</p>
+            <Button type="danger">Button</Button>
+        </div>
+        <div>
+            <p>警告warning：</p>
+            <Button type="warning">Button</Button>
+        </div>
+        <div>
+            <p>默认按钮default：</p>
+            <Button>Button</Button>
+        </div>
+        <div>
+            <p>圆形按钮circle：</p>
+            <Button type="info" circle>Button</Button>
+        </div>
+        <div>
+            <p>小按钮small：</p>
+            <Button size="small">Button</Button>
+        </div>
+        <div>
+            <p>水波纹按钮wave(鼠标移入)：</p>
+            <Button wave>Button</Button>
+        </div>
     </div>
 </template>
+
+<style scoped>
+.btnContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+.btnContainer div{
+    width: 100px;
+    margin-right: 10px;
+}
+</style>
