@@ -1,8 +1,9 @@
 import Button from "./Button";
-import PInput from "./Input";
+import PInput from "./p-input";
+import PCheckbox from "./p-checkbox"
 
 const components = [
-    Button, PInput
+    Button, PInput, PCheckbox
 ]
 
 const install = function(app){
