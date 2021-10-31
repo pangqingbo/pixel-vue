@@ -22,6 +22,7 @@ export default {
 <style scoped>
 #nav{
   width: 500px;
+  min-height: 400px;
   margin-top: 10px;
   background-color: rgba(128, 128, 128, 0.267);
 }
