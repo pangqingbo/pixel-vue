@@ -1,64 +1,62 @@
 <template>
-  <div
-    class="pCheckboxGroup"
-    :class="{ row, border }"
-  >
-    <div
-        v-for="item in items"
-        :key="item.key"
-    >
-      <input type="checkbox" :checked="item.checked" name="" :id="item.value" />
+  <div class="pCheckboxGroup">
+    <div v-for="(item, index) in items" :key="index">
+      <input type="checkbox" v-model="item.isSelected" @change="checkedChange" :id="item.value" />
       <label :for="item.value">{{ item.value }}</label>
     </div>
+
     <div>
       <span>
-        <input @click="checkedAll" type="checkbox" name="" id="checkAll">
-        <label for="checkAll">全选/全不选</label>
+        <input v-model="checkedAll" @change="checkedAllChange" type="checkbox" :id="items" />
+        <label :for="items">全选/全不选</label>
       </span>
     </div>
   </div>
 </template>
 
 <script>
-import { toRefs } from "@vue/reactivity";
+import { ref, toRefs } from "@vue/reactivity";
 
 export default {
   name: "PCheckboxGroup",
   props: {
-    row: {
-      type: Boolean,
-      default: false,
-    },
-    column: {
-      type: Boolean,
-      default: false,
-    },
-    border: {
-      type: Boolean,
-      default: false,
-    },
     items: Array,
   },
   setup(props) {
+
+    // 全选按钮发生改变时，子选项应该如何变化
+    const checkedAll = ref(false);
     let { items } = toRefs(props);
-    function checkedAll() {
-        Array.from(items.value).forEach((item) => {
-            item.checked = !item.checked
-        })
+    function checkedAllChange() {
+      items.value.forEach((item) => {
+        item.isSelected = checkedAll.value;
+      });
+    }
+    
+    // 子选项发生改变时，全选按钮应该如何变化
+    function checkedChange(){
+      checkedAll.value = true;
+      items.value.forEach((item) => {
+        if(!item.isSelected){
+          checkedAll.value = false
+        }
+      })
     }
     return {
-      checkedAll,
+      checkedChange,
+      checkedAllChange,
+      checkedAll
     };
   },
 };
 </script>
 
 <style scoped>
-.pCheckboxGroup{
-    display: flex;
-    flex-direction: column;
+.pCheckboxGroup {
+  display: flex;
+  flex-direction: column;
 }
-.pCheckboxGroup div{
+.pCheckboxGroup div {
   padding: 4px;
 }
 </style>
