@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="pCheckboxGroup"
-    :class="{ column }"
-  >
+  <div class="pCheckboxGroup" :class="{ column }">
     <div v-for="(item, index) in items" :key="index">
       <label>
         <input
@@ -14,6 +11,7 @@
       </label>
     </div>
 
+    <!-- 全选按钮，通过props中的checkedAllBtn控制 -->
     <div v-if="checkedAllBtn">
       <label>
         <input
@@ -24,7 +22,12 @@
         <span>全选/全不选</span>
       </label>
     </div>
+    
   </div>
+  <!-- 反选按钮 -->
+    <div>
+      <button @click="checkedReverse" type="checkbox">反选</button>
+    </div>
 </template>
 
 <script>
@@ -62,7 +65,16 @@ export default {
         }
       });
     }
+
+    // 绑定反选函数
+    function checkedReverse() {
+      items.value.forEach((item) => {
+        item.isSelected = !item.isSelected;
+      });
+      checkedChange();
+    }
     return {
+      checkedReverse,
       checkedChange,
       checkedAllChange,
       checkedAll,
@@ -78,7 +90,10 @@ export default {
 .pCheckboxGroup div {
   padding: 4px;
 }
-.pCheckboxGroup.column{
+button{
+  margin-left: 6px;
+}
+.pCheckboxGroup.column {
   flex-direction: column;
 }
 </style>
