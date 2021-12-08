@@ -1,51 +1,61 @@
 <template>
     <div class="btnContainer">
         <div>
-            <p>禁用disabled：</p>
             <Button disabled>Button</Button>
-        </div>
-        <div>
-            <p>主按钮primary：</p>
-            <Button type="primary">Button</Button>
-        </div>
-        <div>
-            <p>消息按钮info：</p>
+            <Button type="primary" @click="say">Button</Button>
             <Button type="info">Button</Button>
-        </div>
-        <div>
-            <p>危险danger：</p>
             <Button type="danger">Button</Button>
-        </div>
-        <div>
-            <p>警告warning：</p>
             <Button type="warning">Button</Button>
-        </div>
-        <div>
-            <p>默认按钮default：</p>
             <Button>Button</Button>
         </div>
         <div>
-            <p>圆形按钮circle：</p>
-            <Button type="info" circle>Button</Button>
+            <Button disabled round>Button</Button>
+            <Button type="primary" round>Button</Button>
+            <Button type="info" round>Button</Button>
+            <Button type="danger" round>Button</Button>
+            <Button type="warning" round>Button</Button>
+            <Button round>Button</Button>
         </div>
         <div>
-            <p>小按钮small：</p>
+            <Button wave>Button</Button>
+        </div>
+        <div>
+            <Button disabled size="small">Button</Button>
+            <Button type="primary" size="small">Button</Button>
+            <Button type="info" size="small">Button</Button>
+            <Button type="danger" size="small">Button</Button>
+            <Button type="warning" size="small">Button</Button>
             <Button size="small">Button</Button>
         </div>
         <div>
-            <p>水波纹按钮wave(鼠标移入)：</p>
-            <Button wave>Button</Button>
+            <Button circle disabled>
+                <i class="fas fas fa-trash-alt"></i>
+            </Button>
+            <Button circle type="primary">
+                <i class="fas fas fa-trash-alt"></i>
+            </Button>
+            <Button circle type="info">
+                <i class="fas fas fa-trash-alt"></i>
+            </Button>
+            <Button circle type="danger">
+                <i class="fas fas fa-trash-alt"></i>
+            </Button>
+            <Button circle type="warning">
+                <i class="fas fas fa-trash-alt"></i>
+            </Button>
+            <Button circle>
+                <i class="fas fas fa-trash-alt"></i>
+            </Button>
         </div>
     </div>
 </template>
 
-<style scoped>
-.btnContainer{
-    display: flex;
-    flex-wrap: wrap;
-}
-.btnContainer div{
-    width: 100px;
-    margin-right: 10px;
-}
-</style>
+<script>
+export default {
+    methods: {
+        say() {
+            console.log("hi");
+        },
+    },
+};
+</script>

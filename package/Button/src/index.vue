@@ -1,27 +1,41 @@
 <template>
-    <a
-    :href="href"
-    :style="styleArr"
-    :class="{
+    <button
+    :class="[{
         disabled,
-        circle,
+        round,
         wave,
-    }"
+        circle,
+    },`${type}`,`${size}`]"
+    @click="handleClick"
+    :disabled="disabled"
     >
         <span><slot></slot></span>
-        <div></div>
-    </a>
+
+        <!-- div用来设置水波纹效果 -->
+        <div v-if="wave"></div>
+    </button>
 </template>
 
 <script>
-import { ref, toRefs } from '@vue/reactivity'
-import { onMounted } from '@vue/runtime-core'
 export default {
     name: "Button",
     props: {
-        type:String,
-        style:String,
-        size:String,
+        type:{
+            type: String,
+            default: 'default',
+        },
+        icon:{
+            type: String,
+            default: '',
+        },
+        size:{
+            type: String,
+            default: 'middle',
+        },
+        round:{
+            type: Boolean,
+            default: false,
+        },
         circle:{
             type: Boolean,
             default: false,
@@ -34,73 +48,75 @@ export default {
             type: Boolean,
             default: false,
         },
-        href:{
-            type:String,
-            default: "#",
-        }
     },
-    setup(props){
-        const { type,size } = toRefs(props);
-
-        // 按钮类型比对数组
-        const typeArr = [
-            {type: 'primary', styleObj: {background: 'linear-gradient(90deg, #6616d0, #ac34e7)',color: '#fff',border:'none'}},
-            {type: 'info', styleObj: {background: '#20B2AA',color: '#fff',border:'none'}},
-            {type: 'danger', styleObj: {background: '#ff461f',color: '#fff',border:'none'}},
-            {type: 'warning', styleObj: {background: '#fff143',color: '#fff',border:'none'}},
-        ]
-
-        // 尺寸比对数组 
-        const sizeArr = [
-            {size: 'small', styleObj: {padding: '6px 7px',width: '50px',fontSize: '10px'}}
-        ]
-        
-        // 定义一个数组来接收函数执行后返回的样式对象
-        let styleArr = ref([]);
-        
-        // 修改样式的函数
-        function modifyStyle(arr, attr, attrString){
-            let styleObj = arr.find((item) => {
-                return item[attrString] == attr.value
-            })
-            styleObj = styleObj?.styleObj || {};
-            styleArr.value.push(styleObj);
-            return styleArr
-        }
-
-        onMounted(() => {
-            modifyStyle(typeArr, type, 'type')
-            modifyStyle(sizeArr, size, 'size')
-        });
-
-        return {
-            styleArr
+    methods:{
+        handleClick(e){
+            this.$emit('click', e)
         }
     }
 }
 </script>
 
 <style scoped>
-a{
+button{
     position: relative;
-    display: block;
-    padding: 8px 10px;
-    text-align: center;
-    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    padding: 7px 0px;
     color: rgba(5, 139, 248, 0.8);
     border: 1px solid rgba(5, 139, 248, 0.2);
     border-radius: 3px;
     transition: .5s all;
-    letter-spacing: 1px;
     width: 70px;
+    height: 30px;
+    /* letter-spacing: 1px; */
     overflow: hidden;
+    margin: 5px 5px 0 0;
 }
-a:hover{
+button:hover{
     opacity: .7;
     transform: translateY(-2px);
     box-shadow: 0 0 10px rgba(117, 117, 117, 0.9);
 }
-a.wave div{
+button.primary{
+    background: #409eff;
+    color: #fff
+}
+button.info{
+    background: #67c23a;
+    color: #fff
+}
+button.danger{
+    background: #f56c6c;
+    color: #fff
+}
+button.warning{
+    background: #e6a23c;
+    color: #fff
+}
+button.small{
+    width: 55px;
+    padding: 7px 0;
+    font-size: 10px;
+}
+button.round{
+    border-radius: 40px;
+}
+button.circle{
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border-radius: 50%;
+}
+button.disabled,
+button.disabled:hover{
+    cursor: not-allowed;
+    color:#c0c4cc;
+    background-color: #fff;
+    border-color: ebeef5;
+    transform: none;
+}
+button.wave div{
     position: absolute;
     width: 100%;
     height: 100%;
@@ -109,18 +125,18 @@ a.wave div{
     left: 0;
     transition: 1s;
 }
-a.wave span{
+button.wave span{
     position: relative;
     z-index: 1;
     transition: 1s;
 }
-a.wave:hover span{
+button.wave:hover span{
     color: #fff;
 }
-a.wave:hover div{
+button.wave:hover div{
     top: 0;
 }
-a.wave div::before{
+button.wave div::before{
     content: '';
     position: absolute;
     width: 100%;
@@ -137,14 +153,5 @@ a.wave div::before{
     to{
         background-position-x: 118px;
     }
-}
-a.circle{
-    border-radius: 40px;
-}
-a.disabled{
-    color: #fff;
-    pointer-events: none;
-    background: gray !important;
-    opacity: .6;
 }
 </style>

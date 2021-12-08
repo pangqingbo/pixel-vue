@@ -22,25 +22,33 @@
         <span>全选/全不选</span>
       </label>
     </div>
-    
   </div>
+
   <!-- 反选按钮 -->
-    <div>
-      <button @click="checkedReverse" type="checkbox">反选</button>
-    </div>
+  <div v-if="checkedReverseBtn">
+    <Button @click.capture="checkedReverse">反选</Button>
+  </div>
 </template>
 
 <script>
 import { ref, toRefs } from "@vue/reactivity";
+import Button from "../../Button/src/index.vue"
 
 export default {
   name: "PCheckboxGroup",
+  components:{
+    Button
+  },
   props: {
     column: {
       type: Boolean,
       default: false,
     },
     checkedAllBtn: {
+      type: Boolean,
+      default: false,
+    },
+    checkedReverseBtn: {
       type: Boolean,
       default: false,
     },
@@ -84,16 +92,30 @@ export default {
 </script>
 
 <style scoped>
-.pCheckboxGroup {
+*{
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: none;
+}
+.pCheckboxGroup{
   display: flex;
+  flex-wrap: wrap;
 }
-.pCheckboxGroup div {
+.pCheckboxGroup div{
   padding: 4px;
+  padding-left: 0;
 }
-button{
-  margin-left: 6px;
+div button{
+  display: inline-block;
+  cursor: pointer;
+  width: 55px;
+  padding: 7px 0;
+  font-size: 10px;
+  border-radius: 3px;
+  color: rgba(5, 139, 248, 0.8);
+  border: 1px solid rgba(5, 139, 248, 0.2);
 }
-.pCheckboxGroup.column {
+.pCheckboxGroup.column{
   flex-direction: column;
 }
 </style>

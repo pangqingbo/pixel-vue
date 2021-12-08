@@ -96,7 +96,7 @@ div.iconSlot{
     margin: 0 3px;
 }
 div#inputContainer.noBorder{
-    padding: 20px;
+    padding: 12px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border: 1px solid transparent;
 }
