@@ -1,61 +1,83 @@
 <template>
     <div class="btnContainer">
         <div>
-            <Button disabled>Button</Button>
-            <Button type="primary" @click="say">Button</Button>
-            <Button type="info">Button</Button>
-            <Button type="danger">Button</Button>
-            <Button type="warning">Button</Button>
-            <Button>Button</Button>
+            <table>
+                <tr>
+                    <td>disabled按钮</td>
+                    <td>primary按钮</td>
+                    <td>info按钮</td>
+                    <td>danger按钮</td>
+                    <td>warning按钮</td>
+                    <td>默认按钮</td>
+                </tr>
+            </table>
         </div>
         <div>
-            <Button disabled round>Button</Button>
-            <Button type="primary" round>Button</Button>
-            <Button type="info" round>Button</Button>
-            <Button type="danger" round>Button</Button>
-            <Button type="warning" round>Button</Button>
-            <Button round>Button</Button>
+            <p-button disabled>Button</p-button>
+            <p-button type="primary">Button</p-button>
+            <p-button type="info">Button</p-button>
+            <p-button type="danger">Button</p-button>
+            <p-button type="warning">Button</p-button>
+            <p-button>Button</p-button>
         </div>
         <div>
-            <Button wave>Button</Button>
+            <p-button disabled round>Button</p-button>
+            <p-button type="primary" round>Button</p-button>
+            <p-button type="info" round>Button</p-button>
+            <p-button type="danger" round>Button</p-button>
+            <p-button type="warning" round>Button</p-button>
+            <p-button round>Button</p-button>
         </div>
         <div>
-            <Button disabled size="small">Button</Button>
-            <Button type="primary" size="small">Button</Button>
-            <Button type="info" size="small">Button</Button>
-            <Button type="danger" size="small">Button</Button>
-            <Button type="warning" size="small">Button</Button>
-            <Button size="small">Button</Button>
+            <p-button wave>Button</p-button>
         </div>
         <div>
-            <Button circle disabled>
+            <p-button disabled size="small">Button</p-button>
+            <p-button type="primary" size="small">Button</p-button>
+            <p-button type="info" size="small">Button</p-button>
+            <p-button type="danger" size="small">Button</p-button>
+            <p-button type="warning" size="small">Button</p-button>
+            <p-button size="small">Button</p-button>
+        </div>
+        <div>
+            <p-button circle disabled>
                 <i class="fas fas fa-trash-alt"></i>
-            </Button>
-            <Button circle type="primary">
+            </p-button>
+            <p-button circle type="primary">
                 <i class="fas fas fa-trash-alt"></i>
-            </Button>
-            <Button circle type="info">
+            </p-button>
+            <p-button circle type="info">
                 <i class="fas fas fa-trash-alt"></i>
-            </Button>
-            <Button circle type="danger">
+            </p-button>
+            <p-button circle type="danger">
                 <i class="fas fas fa-trash-alt"></i>
-            </Button>
-            <Button circle type="warning">
+            </p-button>
+            <p-button circle type="warning">
                 <i class="fas fas fa-trash-alt"></i>
-            </Button>
-            <Button circle>
+            </p-button>
+            <p-button circle>
                 <i class="fas fas fa-trash-alt"></i>
-            </Button>
+            </p-button>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    methods: {
-        say() {
-            console.log("hi");
-        },
-    },
+    
 };
 </script>
+
+<style scoped>
+table{
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    border-spacing: 0;
+    text-align: center;
+    font-size: 14px;
+}
+table td{
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+</style>

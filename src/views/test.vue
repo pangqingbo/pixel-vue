@@ -17,7 +17,7 @@
         </p-input>
       </div>
 
-      <!-- 多选框 -->
+      <!-- 多选框,包含反选按钮 -->
       <div>
         <span>标签：</span>
         <p-checkbox-group
@@ -29,8 +29,8 @@
 
       <!-- 取消确定按钮 -->
       <div class="btnContainer">  
-        <Button size="small">取消</Button>
-        <Button type="primary" size="small">确定</Button>
+        <p-button size="small">取消</p-button>
+        <p-button type="primary" size="small">确定</p-button>
       </div>
 
   </div>

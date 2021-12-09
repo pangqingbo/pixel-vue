@@ -18,7 +18,7 @@
 
 <script>
 export default {
-    name: "Button",
+    name: "PButton",
     props: {
         type:{
             type: String,
@@ -49,9 +49,13 @@ export default {
             default: false,
         },
     },
-    methods:{
-        handleClick(e){
-            this.$emit('click', e)
+    emits: ['click'],
+    setup(props, {emit}){
+        const handleClick = (e) => {
+            emit('click', e)
+        }
+        return {
+            handleClick
         }
     }
 }

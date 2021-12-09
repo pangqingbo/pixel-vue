@@ -26,18 +26,18 @@
 
   <!-- 反选按钮 -->
   <div v-if="checkedReverseBtn">
-    <Button @click.capture="checkedReverse">反选</Button>
+    <p-button @click="checkedReverse">反选</p-button>
   </div>
 </template>
 
 <script>
 import { ref, toRefs } from "@vue/reactivity";
-import Button from "../../Button/src/index.vue"
+import PButton from "../../p-button/src/index.vue"
 
 export default {
   name: "PCheckboxGroup",
   components:{
-    Button
+    PButton
   },
   props: {
     column: {

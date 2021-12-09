@@ -21,6 +21,11 @@ const routes = [
         name: 'Test',
         component: () => import('../views/test.vue')
     },
+    {
+        path: '/pdialog',
+        name: 'Dialog',
+        component: () => import('../views/Dialog.vue')
+    },
   ]
 
 const router = createRouter({
