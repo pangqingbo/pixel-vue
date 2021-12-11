@@ -61,8 +61,12 @@ export default {
 }
 .btnContainer{
     display: flex;
+    margin-top: 5px;
 }
 .userInput{
     margin: 5px 0;
+}
+.btnContainer button:first-child{
+    margin-right: 5px;
 }
 </style>

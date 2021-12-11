@@ -80,4 +80,8 @@ table td{
     border-right: 1px solid black;
     border-bottom: 1px solid black;
 }
+div button{
+    margin-right: 5px;
+    margin-top: 5px;
+}
 </style>

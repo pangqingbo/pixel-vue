@@ -75,7 +75,6 @@ button{
     height: 30px;
     /* letter-spacing: 1px; */
     overflow: hidden;
-    margin: 5px 5px 0 0;
 }
 button:hover{
     opacity: .7;

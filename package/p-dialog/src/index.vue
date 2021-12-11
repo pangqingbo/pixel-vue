@@ -1,22 +1,24 @@
 <template>
-    <div class="pDialogWrapper" v-show="visible">
-        <div class="pDialog" :style="{width, marginTop:top}">
-            <div class="pDialogHeader">
-                <slot name="header">
-                    <span class="pDialogTitle">{{ title }}</span>
-                </slot>
-                <button class="pDialogHeaderBtn" @click="handleClose">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="pDialogBody">
-                <slot></slot>
-            </div>
-            <div class="pDialogFooter" v-if="$slots.footer">
-                <slot name="footer"></slot>
+    <transition name="dialog-fade">
+        <div class="pDialogWrapper" v-show="visible">
+            <div class="pDialog" :style="{width, marginTop:top}">
+                <div class="pDialogHeader">
+                    <slot name="header">
+                        <span class="pDialogTitle">{{ title }}</span>
+                    </slot>
+                    <button class="pDialogHeaderBtn" @click="handleClose">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="pDialogBody">
+                    <slot></slot>
+                </div>
+                <div class="pDialogFooter" v-if="$slots.footer">
+                    <slot name="footer"></slot>
+                </div>
             </div>
         </div>
-    </div>
+    </transition>
 </template>
 
 <script>
@@ -98,5 +100,25 @@ export default {
     padding: 10px 20px;
     display: flex;
     justify-content: end;
+}
+.pDialog .pDialogFooter button:first-child{
+    margin-right: 5px;
+}
+/* dialog显示/隐藏动画效果 */
+.dialog-fade-enter-active{
+    animation: fade 1s;
+}
+.dialog-fade-leave-active{
+    animation: fade .3s reverse;
+}
+@keyframes fade {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
 }
 </style>
