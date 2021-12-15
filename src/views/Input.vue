@@ -1,4 +1,5 @@
 <template>
+
   <div>
     <p-input v-model='searchText' placeholder='edit me'>
       <template #preicon>
@@ -10,6 +11,7 @@
     </p-input>
     <p>value is:{{searchText}}</p>
   </div>
+
   <div>
     <p-input placeholder='Name' type="noBorder">
       <template #preicon>
@@ -20,6 +22,7 @@
       </template>
     </p-input>
   </div>
+
 </template>
 
 <script>
@@ -36,4 +39,5 @@ export default {
 div{
     margin: 10px 5px;
 }
+
 </style>

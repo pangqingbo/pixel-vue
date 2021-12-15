@@ -3,14 +3,14 @@
 
       <!-- input输入框 -->
       <div class="userInput">
-        <p-input placeholder="账号" type="noBorder">
+        <p-input placeholder="账号">
             <template #preicon>
                 <i class="fas fa-user"></i>
             </template>
         </p-input>
       </div>
       <div class="userInput">
-        <p-input placeholder="密码" type="noBorder">
+        <p-input placeholder="密码">
             <template #preicon>
                 <i class="fas fa-key"></i>
             </template>
@@ -63,10 +63,13 @@ export default {
     display: flex;
     margin-top: 5px;
 }
+.btnContainer button:first-child{
+    margin-right: 5px;
+}
 .userInput{
     margin: 5px 0;
 }
-.btnContainer button:first-child{
-    margin-right: 5px;
+.userInput >>> input{
+    width: 300px;
 }
 </style>

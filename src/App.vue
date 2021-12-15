@@ -24,7 +24,7 @@ export default {
   width: 500px;
   min-height: 400px;
   margin-top: 10px;
-  background-color: rgba(128, 128, 128, 0.267);
+  /* background-color: rgba(128, 128, 128, 0.267); */
   padding: 10px;
 }
 #nav a{

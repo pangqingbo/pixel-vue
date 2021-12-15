@@ -26,6 +26,11 @@ const routes = [
         name: 'Dialog',
         component: () => import('../views/Dialog.vue')
     },
+    {
+        path: '/pradio',
+        name: 'Radio',
+        component: () => import('../views/Radio.vue')
+    },
   ]
 
 const router = createRouter({
