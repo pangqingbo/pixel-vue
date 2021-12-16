@@ -6,16 +6,20 @@
             class="p-radio-origin"
             type="radio"
             :name="name"
-            :value="label"
+            :value="modelValue"
+            @change="$emit('update:modelValue', $event.target.value)"
             />
         </span>
         <span class="p-radio-label">
             <slot>{{label}}</slot>
         </span>
     </label>
+    {{modelValue}}-{{label}}
 </template>
 
 <script>
+// import { toRefs } from '@vue/reactivity'
+// import { watch } from '@vue/runtime-core'
 export default {
     name: 'PRadio',
     props: {
@@ -27,8 +31,20 @@ export default {
         name: {
             type: String,
             default: ''
+        },
+        modelValue: {
+            type: String
         }
-    }
+    },
+    emits: ['update:modelValue'],
+    // setup(props){
+    //     let { modelValue } = toRefs(props)
+    //     console.log(modelValue.value)
+    //     watch(modelValue.value, (newVal) => {
+    //         console.log(newVal)
+    //     })
+    //     return modelValue
+    // }
 }
 </script>
 
